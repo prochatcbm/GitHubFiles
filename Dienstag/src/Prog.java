@@ -48,6 +48,7 @@ public class Prog {
 
     Taxi taxa = new Taxi(22);
     System.out.println("Taxometer Stand: "+taxa.getTaxoemter());
+    taxa.setPS(90);
 
 }
 

@@ -8,9 +8,9 @@ class Fahrzeug {
     private String farbe;
 
     /* GRENZWERTE SETZEN */
-    final int Max_PS = 400;
-    final int Max_VMAX = 400;
-    final int Max_TANK = 400;
+    protected int Max_PS = 400;
+    protected int Max_VMAX = 400;
+    protected int Max_TANK = 400;
     /* GRENZWERTE SETZEN */
 
 

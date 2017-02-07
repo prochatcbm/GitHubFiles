@@ -2,17 +2,18 @@
  * Created by Administrator on 07.02.2017.
  */
 public class Taxi extends Pkw{
-    int taxoemter;
+    private int taxoemter;
 
 
     Taxi(){
         super();
-        taxoemter=0;
+        this.taxoemter=0;
     }
 
     Taxi(int taxometer){
         super();
         this.taxoemter=taxometer;
+        this.Max_PS=20;
     }
 
     public int getTaxoemter() {
