@@ -32,6 +32,12 @@ public class Prog {
         double verbraucht2=vw[2].fahren(20);
         System.out.println("Nach dem Fahren sind "+verbraucht2+" Liter verbraucht und "+vw[2].tank+" Liter übrig.");
 
+        vw[3].setFARBE("");
+        System.out.println(vw[3].getFARBE());
+        vw[3].setTANK(9999);
+
+
+
 
     }
 
