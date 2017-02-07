@@ -2,10 +2,10 @@
  * Created by Administrator on 07.02.2017.
  */
 class Fahrzeug {
-    int ps;
-    int vmax;
-    int tank;
-    String farbe;
+    private int ps;
+    private int vmax;
+    private int tank;
+    private String farbe;
 
     /* GRENZWERTE SETZEN */
     final int Max_PS = 400;
@@ -14,15 +14,14 @@ class Fahrzeug {
     /* GRENZWERTE SETZEN */
 
 
-    public int getPS() {
-        return this.ps;
-    }
+    /* GETTER UND SETTER SETZEN */
 
-    public void setPS(int _ps) {
-        if (_ps > Max_PS) {
+
+    public void setPS(int ps) {
+        if (ps > Max_PS) {
             ErrorString("Das Sind zuviele PS");
         } else {
-            this.ps = _ps;
+            this.ps = ps;
         }
     }
 
@@ -30,11 +29,11 @@ class Fahrzeug {
         return this.vmax;
     }
 
-    public void setVMAX(int _vmax) {
-        if (_vmax > Max_VMAX) {
+    public void setVMAX(int vmax) {
+        if (vmax > Max_VMAX) {
             ErrorString("Das Sind zuviele KMH");
         } else {
-            this.vmax = _vmax;
+            this.vmax = vmax;
         }
     }
 
@@ -42,11 +41,11 @@ class Fahrzeug {
         return this.tank;
     }
 
-    public void setTANK(int _tank) {
-        if (_tank > Max_TANK) {
+    public void setTANK(int tank) {
+        if (tank > Max_TANK) {
             ErrorString("Das Sind zuviele Liter Benzin");
         } else {
-            this.tank = _tank;
+            this.tank = tank;
         }
 
     }
@@ -55,14 +54,21 @@ class Fahrzeug {
         return this.farbe;
     }
 
-    public void setFARBE(String _farbe) {
-        if (_farbe == "" || _farbe==null) {
+    public void setFARBE(String farbe) {
+        if (farbe == "" || farbe == null) {
             ErrorString("Das ist keine Farbe");
         } else {
-            this.farbe = _farbe;
+            this.farbe = farbe;
         }
 
     }
+
+
+    public double getKW() {
+        return this.ps * 0.7355;
+    }
+
+ /* GETTER UND SETTER SETZEN */
 
     Fahrzeug() {
         tank = 80;
@@ -71,11 +77,11 @@ class Fahrzeug {
         vmax = 220;
     }
 
-    Fahrzeug(int _tank, int _ps, int _vmax, String _farbe) {
-        tank = _tank;
-        farbe = _farbe;
-        ps = _ps;
-        vmax = _vmax;
+    Fahrzeug(int tank, int ps, int vmax, String farbe) {
+        this.tank = tank;
+        this.farbe = farbe;
+        this.ps = ps;
+        this.vmax = vmax;
     }
 
     double fahren(int km) {
@@ -84,8 +90,28 @@ class Fahrzeug {
         return verbr;
     }
 
+
+    void tanken(int liter) {
+        if (Max_TANK < (this.tank + liter)) {
+            ErrorString("So viel passt nich in den Tank");
+
+        } else {
+            this.tank += liter;
+            System.out.println("Der Tank hat nun " + this.tank + " Liter Benin");
+        }
+
+
+    }
+
+    public int getPS() {
+        return this.ps;
+
+    }
+
+
     private void ErrorString(String _error) {
         System.out.println(_error);
     }
+
 
 }

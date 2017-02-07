@@ -26,25 +26,34 @@ public class Prog {
         }
 
         double verbraucht=vw[0].fahren(120);
-        System.out.println("Nach dem Fahren sind "+verbraucht+" Liter verbraucht und "+vw[0].tank+" Liter übrig.");
+        System.out.println("Nach dem Fahren sind "+verbraucht+" Liter verbraucht und "+vw[0].getTANK()+" Liter übrig.");
 
 
         double verbraucht2=vw[2].fahren(20);
-        System.out.println("Nach dem Fahren sind "+verbraucht2+" Liter verbraucht und "+vw[2].tank+" Liter übrig.");
+        System.out.println("Nach dem Fahren sind "+verbraucht2+" Liter verbraucht und "+vw[2].getTANK()+" Liter übrig.");
 
         vw[3].setFARBE("");
         System.out.println(vw[3].getFARBE());
-        vw[3].setTANK(9999);
+
+        vw[2].tanken(22000);
+        vw[1].setTANK(22);
+        vw[1].tanken(12);
+
+        System.out.println(vw[1].getPS());
+        System.out.println(vw[1].getKW());
 
 
 
 
-    }
 
+    Taxi taxa = new Taxi(22);
+    System.out.println("Taxometer Stand: "+taxa.getTaxoemter());
 
-    static void ZeigeFahrzeuge(Pkw _pkw) {
+}
+
+    static void ZeigeFahrzeuge(Pkw pkw) {
         System.out.println("############ Neuer PKW START ##########");
-        System.out.println("Tank: " + _pkw.tank + " - PS: " + _pkw.ps + " - VMAX:" + _pkw.vmax + " - Farbe: " + _pkw.farbe);
+        System.out.println("Tank: " + pkw.getTANK() + " - PS: " + pkw.getPS() + " - VMAX:" + pkw.getVMAX() + " - Farbe: " + pkw.getFARBE());
         System.out.println("############ Neuer PKW END   ##########");
 
     }

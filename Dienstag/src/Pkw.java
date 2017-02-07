@@ -7,8 +7,9 @@ public class Pkw extends Fahrzeug {
         super();
     }
 
-    Pkw(int _tank, int _ps, int _vmax, String _farbe) {
-        super(_tank, _ps, _vmax, _farbe);
+    Pkw(int tank, int ps, int vmax, String farbe) {
+
+        super(tank, ps, vmax, farbe);
     }
 
 
