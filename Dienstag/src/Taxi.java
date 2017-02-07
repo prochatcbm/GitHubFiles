@@ -9,7 +9,6 @@ public class Taxi extends Pkw {
         super();
         this.taxometer = 0;
 
-
     }
 
     Taxi(int taxometer) {

@@ -1,5 +1,8 @@
 public class Prog {
 
+
+
+
     public static void main(String[] args) {
         Fahrzeug audi = new Fahrzeug(80, 95, 240, "blau");
         Fahrzeug ente = new Fahrzeug();
