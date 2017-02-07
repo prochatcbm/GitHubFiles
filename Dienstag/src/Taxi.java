@@ -1,27 +1,30 @@
 /**
  * Created by Administrator on 07.02.2017.
  */
-public class Taxi extends Pkw{
-    private int taxoemter;
+public class Taxi extends Pkw {
+    private int taxometer;
 
 
-    Taxi(){
+    Taxi() {
         super();
-        this.taxoemter=0;
+        this.taxometer = 0;
+
+
     }
 
-    Taxi(int taxometer){
+    Taxi(int taxometer) {
         super();
-        this.taxoemter=taxometer;
-        this.Max_PS=20;
+        this.taxometer = taxometer;
+        this.Max_PS = 20;
     }
 
     public int getTaxoemter() {
-        return this.taxoemter;
+        return this.taxometer;
     }
 
     public void setTaxoemter(int km) {
-            this.taxoemter = km;
+        this.taxometer = km;
+
     }
 
 }

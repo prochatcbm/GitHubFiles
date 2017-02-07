@@ -14,6 +14,10 @@ class Fahrzeug {
     /* GRENZWERTE SETZEN */
 
 
+
+
+
+
     /* GETTER UND SETTER SETZEN */
 
 
