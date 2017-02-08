@@ -4,11 +4,14 @@
 class Fahrzeug {
     private int ps;
     private int vmax;
-    private int tank;
+
+    //ToDo Als Getter / Setter umbauen
+    protected int tank;
+
     private String farbe;
 
     /* GRENZWERTE SETZEN */
-    protected int Max_PS = 400;
+    protected int Max_PS;
     protected int Max_VMAX = 400;
     protected int Max_TANK = 400;
     /* GRENZWERTE SETZEN */
