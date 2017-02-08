@@ -15,8 +15,8 @@ public class Tag3_java_awt {
     Tag3_java_awt() {
         lbl = new Label[4];
         btn = new Button[2];
-        int width=300;
-        int height=300;
+        int width = 300;
+        int height = 300;
 
         Build_Frame(2, 3, width, height);
         Build_Labels("Label1");
@@ -26,12 +26,10 @@ public class Tag3_java_awt {
         Build_Buttons("OK");
         Build_Buttons("RESET");
         frm.setVisible(true);
-
-        Dimension dim=Toolkit.getDefaultToolkit().getScreenSize();
-        int moniBreite=dim.width;
-        int moniHoehe=dim.height;
-
-        frm.setLocation(((moniBreite/2)-(width/2)),((moniHoehe/2)-(height/2)));
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        int moniBreite = dim.width;
+        int moniHoehe = dim.height;
+        frm.setLocation(((moniBreite / 2) - (width / 2)), ((moniHoehe / 2) - (height / 2)));
     }
 
     public static void main(String[] args) {
@@ -47,22 +45,22 @@ public class Tag3_java_awt {
 
     void Build_Buttons(String btnText) {
         btn[btn_cnter] = new Button(btnText);
-        btn[btn_cnter].setForeground(Color.getHSBColor(getRandomColor(),getRandomColor(),getRandomColor()));
-        btn[btn_cnter].setBackground(Color.getHSBColor(getRandomColor(),getRandomColor(),getRandomColor()));
+        btn[btn_cnter].setForeground(Color.getHSBColor(getRandomColor(), getRandomColor(), getRandomColor()));
+        btn[btn_cnter].setBackground(Color.getHSBColor(getRandomColor(), getRandomColor(), getRandomColor()));
         frm.add(btn[btn_cnter]);
         btn[btn_cnter].addActionListener(new MeineAktion());
         btn_cnter++;
     }
 
 
-    int getRandomColor(){
-        int rand=(int) (Math.random() * 256);
+    int getRandomColor() {
+        int rand = (int) (Math.random() * 256);
         return rand;
     }
 
 
     void Build_Labels(String lbl_Text) {
-        Font Standard=new Font("Serif",Font.BOLD,14);
+        Font Standard = new Font("Serif", Font.BOLD, 14);
         lbl[lbl_cnter] = new Label(lbl_Text);
         lbl[lbl_cnter].setFont(Standard);
         frm.add(lbl[lbl_cnter]);
@@ -82,10 +80,10 @@ public class Tag3_java_awt {
             String s = e.getActionCommand();
             if (s.equals("OK")) {
                 lbl[0].setText(++cnter + " mal geklickt");
-                Pkw p=new Pkw(50,130,40,"rot");
-                lbl[1].setText("Farbe:"+p.getFARBE());
-                lbl[2].setText("PS:"+Integer.toString(p.getPS()));
-                lbl[3].setText("TANK:"+Integer.toString(p.getTANK()));
+                Pkw p = new Pkw(50, 130, 40, "rot");
+                lbl[1].setText("Farbe:" + p.getFARBE());
+                lbl[2].setText("PS:" + Integer.toString(p.getPS()));
+                lbl[3].setText("TANK:" + Integer.toString(p.getTANK()));
             }
             if (s.equals("RESET")) {
                 lbl[0].setText("Label1");
