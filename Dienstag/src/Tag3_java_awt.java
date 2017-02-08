@@ -17,7 +17,6 @@ public class Tag3_java_awt {
         btn = new Button[2];
         int width = 300;
         int height = 300;
-
         Build_Frame(2, 3, width, height);
         Build_Labels("Label1");
         Build_Labels("Label2");
@@ -25,11 +24,11 @@ public class Tag3_java_awt {
         Build_Labels("Label4");
         Build_Buttons("OK");
         Build_Buttons("RESET");
-        frm.setVisible(true);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         int moniBreite = dim.width;
         int moniHoehe = dim.height;
         frm.setLocation(((moniBreite / 2) - (width / 2)), ((moniHoehe / 2) - (height / 2)));
+        frm.setVisible(true);
     }
 
     public static void main(String[] args) {
@@ -80,13 +79,18 @@ public class Tag3_java_awt {
             String s = e.getActionCommand();
             if (s.equals("OK")) {
                 lbl[0].setText(++cnter + " mal geklickt");
-                Pkw p = new Pkw(50, 130, 40, "rot");
+                Pkw p = new Pkw(70, 130, 40, "rot");
                 lbl[1].setText("Farbe:" + p.getFARBE());
                 lbl[2].setText("PS:" + Integer.toString(p.getPS()));
                 lbl[3].setText("TANK:" + Integer.toString(p.getTANK()));
             }
             if (s.equals("RESET")) {
-                lbl[0].setText("Label1");
+                for (int i = 0; i <4 ; i++) {
+
+                    lbl[i].setText("Label"+(i+1));
+                }
+
+
             }
         }
     }
