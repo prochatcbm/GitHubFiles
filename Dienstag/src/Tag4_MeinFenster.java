@@ -11,12 +11,20 @@ public class Tag4_MeinFenster extends JFrame {
 
 
     Tag4_MeinFenster() {
-        dbconnect db = new dbconnect();
-        db.createDB();
-        // db.closeConnection();
-
-        /*
         super("Mein Fenster Programm");
+
+        dbconnect db = new dbconnect();
+       // db.createDB();
+        String test= db.getNamenFromDB();
+
+
+
+        System.out.println("Name aus der Datenbank: "+test);
+
+
+       // db.closeConnection();
+
+/*
         int width = 300;
         int height = 300;
         this.setLayout(new GridLayout(1, 2));
@@ -29,8 +37,8 @@ public class Tag4_MeinFenster extends JFrame {
         int moniHoehe = dim.height;
         this.setLocation(((moniBreite / 2) - (width / 2)), ((moniHoehe / 2) - (height / 2)));
         this.setVisible(true);
-*/
 
+*/
 
     }
 

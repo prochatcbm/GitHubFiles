@@ -15,12 +15,12 @@ public final class dbconnect {
         try {
             String userName = "root";
             String password = "";
-            String url = "jdbc:mysql://localhost:3306/test";
+            String url = "jdbc:mysql://localhost:3306";
             //Class.forName ("com.mysql.jdbc.Driver").newInstance ();
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection(url, userName, password);
         } catch (Exception e) {
-            System.out.println("Exception found");
+            System.out.println("Exception found in connection"+e);
         }
     }
 
@@ -36,6 +36,46 @@ public final class dbconnect {
         } catch (Exception e) {
             System.out.println("Connection close error");
         }
+    }
+
+
+    public String getNamenFromDB() {
+        String name = "nix";
+        try {
+            Statement stt = conn.createStatement();
+            stt.execute("USE javatestdb");
+
+            ResultSet res = stt.executeQuery("SELECT * FROM people WHERE lname = 'Bloggs'");
+            //System.out.println(res.getString("fname") + " " + res.getString("lname"));
+
+            String foundType="";
+
+            while(res.next()){
+
+                if(res.next()) {
+
+                    //foundType = res.getString(1);
+                    name=res.getString("fname") + " " + res.getString("lname");
+                }
+            }
+
+           // System.out.println(foundType);
+
+/*
+
+            while (res.next()) {
+                 System.out.println(res.getString("fname") + " " + res.getString("lname"));
+              // name = res.getString("fname") + " " + res.getString("lname");
+                // System.out.println(name);
+            }
+
+*/
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return name;
     }
 
 
