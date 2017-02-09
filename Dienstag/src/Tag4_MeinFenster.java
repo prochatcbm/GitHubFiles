@@ -1,3 +1,5 @@
+import com.example.databse.dbconnect;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -9,6 +11,11 @@ public class Tag4_MeinFenster extends JFrame {
 
 
     Tag4_MeinFenster() {
+        dbconnect db = new dbconnect();
+        db.createDB();
+        // db.closeConnection();
+
+        /*
         super("Mein Fenster Programm");
         int width = 300;
         int height = 300;
@@ -22,6 +29,9 @@ public class Tag4_MeinFenster extends JFrame {
         int moniHoehe = dim.height;
         this.setLocation(((moniBreite / 2) - (width / 2)), ((moniHoehe / 2) - (height / 2)));
         this.setVisible(true);
+*/
+
+
     }
 
 
