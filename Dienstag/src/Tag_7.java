@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 /**
  * Created by Administrator on 14.02.2017.
@@ -25,7 +27,7 @@ public class Tag_7 extends JFrame {
         int height = 300;
         String[] MenueItems = {"Verzeichnis", "JTextArea speichern", "JTextArea öffnen", "Textzeile speichern", "Textzeile öffnen", "beenden"};
         meinJDialog.addWindowListener(new EndProg());
-        meinJDialog.setTitle("Mein Fenster");
+        meinJDialog.setTitle(printSimpleDateFormat());
         meinJDialog.setSize(width, height);
         JMenuBar bar = new JMenuBar();
         for (int i = 0; i < MenueItems.length; i++) {
@@ -78,6 +80,13 @@ public class Tag_7 extends JFrame {
 
     }
 
+    static String printSimpleDateFormat() {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy - HH:mm:ss ");
+        Date currentTime = new Date();
+       return (formatter.format(currentTime));
+    }
+
+
     void dateiSchreiben() {
         dateiAuswahl = new JFileChooser(".");
         DateiName = new File(".");
@@ -109,14 +118,10 @@ public class Tag_7 extends JFrame {
         FileInputStream fis = null;
 
         if ((rueck == JFileChooser.APPROVE_OPTION) && (DateiName != null)) {
-
             try {
                 fis = new FileInputStream(DateiName);
                 ObjectInputStream ois = new ObjectInputStream(fis);
-
-                txtA.setText((String)ois.readObject());
-
-
+                txtA.setText((String) ois.readObject());
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -128,11 +133,42 @@ public class Tag_7 extends JFrame {
     }
 
     void schreibeTextZeile() {
+        String S1 = "Meier , 18:00 Uhr, 14.02.2016, Logout";
+        String S2 = "Kunde 53, 8 Äpfel gekauft und geliefert";
+
+        try {
+            FileWriter fr = new FileWriter("C:\\Users\\Administrator\\Desktop\\Protokoll.txt", true);
+            BufferedWriter bw = new BufferedWriter(fr);
+            bw.newLine();
+            bw.write(S1);
+            bw.newLine();
+            bw.write(S2);
+            bw.newLine();
+            bw.flush();
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
     void leseTextZeile() {
+        String lese = new String();
 
+        try {
+            FileReader fr = new FileReader("C:\\Users\\Administrator\\Desktop\\Protokoll.txt");
+            BufferedReader br = new BufferedReader(fr);
+
+            while ((lese = br.readLine()) != null) {
+                txtA.append(lese + "\n");
+            }
+            fr.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     class MenuListener implements ActionListener {
